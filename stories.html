@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stories.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="favi/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favi/favicon-16x16.png">
+    <title>Рассказы</title>
+</head>
+
+<body style="background-color: #1e1e1e;">
+    <header style="background-color: #1e1e1e;">
+        <div class="conteiner">
+            <div class="head">
+                <a href="index.html" class="logo">
+                    <img src="img/загрузка.png" alt="">
+                    <span>Learning English</span>
+                </a>
+                <nav>
+                    <ul>
+                        <a href="dictionary.html">
+                            <li>Словарь</li>
+                        </a>
+                        <a href="grammar.html">
+                            <li>Времена</li>
+                        </a>
+                        <a href="stories.html" class="selected">
+                            <li>Рассказы</li>
+                        </a>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="welcome" style="background-color: #121212;">
+            <div class="conteiner">
+                <div class="conteiner_welocme">
+                    <h1>Рассказы на английском языке</h1>
+                    <p>Читайте увлекательные рассказы и улучшайте свои навыки английского языка.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="plusi">
+            <div class="conteiner">
+                <div id="storyGrid" class="story-grid">
+                </div>
+            </div>
+        </section>
+
+        <div id="storyModal" class="modal">
+            <div class="modal-content">
+                <img id="modalImage" src="/placeholder.svg" alt="">
+                <div id="modalText"></div>
+                <a href="#" class="close-btn" id="closeModal">Закрыть</a>
+            </div>
+        </div>
+
+    </main>
+    
+
+    <footer style="background-color: #1e1e1e;">
+        <div class="conteiner">
+            <div class="copyright">
+                <p>&copy;English Learning. Все права защищены</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        const stories = [
+            {
+                id: 1,
+                title: "The Lost City",
+                image: "https://avatars.mds.yandex.net/i?id=5572f04f09ea62624c0c4cebed1b113d_l-4468494-images-thumbs&n=13",
+                modalImage: "https://avatars.mds.yandex.net/i?id=767a5002474cfd6cbd42cadaf0cd69d9_l-8129946-images-thumbs&n=13",
+                content: "When the US explorer and academic Hiram Bingham arrived in South America in 1911, he was ready for what was to be the greatest achievement of his life: the exploration of the remote hinterland to the west of Cusco, the old capital of the Inca empire in the Andes mountains of Peru. His goal was to locate the remains of a city called Vitcos, the last capital of the Inca civilisation. Cusco lies on a high plateau at an elevation of more than 3,000 metres, and Bingham's plan was to descend from this plateau along the valley of the Urubamba river, which takes a circuitous route down to the Amazon and passes through an area of dramatic canyons and mountain ranges."
+            },
+            {
+                id: 2,
+                title: "My Day",
+                image: "https://i.pinimg.com/originals/ea/49/08/ea4908cb9d3027c74c50ed176e577a55.jpg",
+                modalImage: "https://i.pinimg.com/736x/2d/91/e0/2d91e0c86b780cff56ece1d98f58c17a.jpg",
+                content: "First, I wake up. Then, I get dressed. I walk to school. I do not ride a bike. I do not ride the bus. I like to go to school. It rains. I do not like rain. I eat lunch. I eat a sandwich and an apple. I play outside. I like to play. I read a book. I like to read books. I walk home. I do not like walking home. My mother cooks soup for dinner. The soup is hot. Then, I go to bed. I do not like to go to bed."
+            },
+            {
+                id: 3,
+                title: "The Adventure",
+                image: "https://cdn.culture.ru/images/e4dd0669-c086-5526-bc00-be0c406299c3",
+                modalImage: "https://steamuserimages-a.akamaihd.net/ugc/923709215508758641/C066D6D1C6B784CE2622602C185566AFF284E276/?imw=512&amp;imh=273&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true",
+                content: "Last summer, I went on an adventure with my friends. We decided to explore the forest near our town. We packed our backpacks with food, water, and a map. We started early in the morning. The forest was beautiful and peaceful. We saw many animals and birds. We found a small river and followed it. After walking for two hours, we discovered a hidden waterfall. It was amazing! We took many photos and had a picnic near the waterfall. In the afternoon, we returned home. It was the best day of my summer vacation."
+            },
+            {
+                id: 4,
+                title: "The Mystery Box",
+                image: "https://cdn1.ozone.ru/s3/multimedia-s/6677460064.jpg",
+                modalImage: "https://i.etsystatic.com/18329692/r/il/9273ef/1695209947/il_570xN.1695209947_mskv.jpg",
+                content: "Sarah found a strange box in her grandmother's attic. The box was old and dusty. It had a lock, but no key. Sarah was curious about what was inside. She tried to open it, but couldn't. She asked her grandmother about the box. Her grandmother smiled and said it was a special box from her childhood. She went to her room and returned with a small key. Sarah opened the box and found old photographs, letters, and a beautiful necklace. Her grandmother told her stories about each item. Sarah learned a lot about her family history that day."
+            },
+            {
+                id: 5,
+                title: "The New Student",
+                image: "https://cdn.idntimes.com/content-images/community/2016/11/45558-lmw-new-stress1-100411o1-89cc55d1f99707122a7159dcd040c143.jpg",
+                modalImage: "https://media.gettyimages.com/id/77005462/photo/student-holding-books-in-library.jpg?s=612x612&w=gi&k=20&c=id6kAj_w9ZQ0VQUi_woiOr-_O3o7d7J-epLcuuRQZuk=",
+                content: "Today, a new student joined our class. His name is Alex. He moved here from another city. He seemed shy and didn't talk much. During lunch, I saw him sitting alone. I decided to sit with him. I introduced myself and we started talking. I learned that Alex likes the same video games and books as me. I introduced him to my friends, and we all played together during recess. After school, I invited Alex to join our study group. He was happy and accepted the invitation. I'm glad I made a new friend today."
+            },
+            {
+                id: 6,
+                title: "The Science Project",
+                image: "https://new.dop.mosreg.ru/images/events/cover/29e2ef6a1547907de22f3b931e3b7890_big.jpg",
+                modalImage: "https://yanshishma.com/attachments/b421a42c6e6e79ba47fc79d038b12448fc0e5203/store/crop/0/0/1335/960/1600/0/0/2f6be9367fb6043461727b82e5fe73baefab4bb2803bdaada27da7beb0d8/9de12bce71016a272b8e5930fb5a152d.jpg",
+                content: "Our teacher assigned a science project last week. We had to work in pairs. My partner was Emma. We decided to make a model of the solar system. We worked on it every day after school. Emma was good at painting, so she painted the planets. I was good at building things, so I created the structure. We used different materials to make each planet look unique. On the day of the presentation, our model was the most colorful one in the class. The teacher was impressed and gave us an A. We were very proud of our work."
+            }
+        ];
+        const storyGrid = document.getElementById('storyGrid');
+        const storyModal = document.getElementById('storyModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalText = document.getElementById('modalText');
+        const closeModal = document.getElementById('closeModal');
+        function generateStoryCards() {
+            storyGrid.innerHTML = '';
+            stories.forEach(story => {
+                const storyCard = document.createElement('div');
+                storyCard.className = 'story-card';
+                storyCard.dataset.id = story.id;
+
+                storyCard.innerHTML = `
+                    <img src="${story.image}" alt="${story.title}">
+                    <div class="story-card-content">
+                        <div class="story-card-title">
+                            <h3>${story.title}</h3>
+                        </div>
+                    </div>
+                `;
+
+                storyCard.addEventListener('click', () => openStory(story.id));
+                storyGrid.appendChild(storyCard);
+            });
+        }
+        function openStory(id) {
+            const story = stories.find(s => s.id === id);
+            if (!story) return;
+
+            modalImage.src = story.modalImage;
+            modalText.textContent = story.content;
+            storyModal.style.display = 'block';
+        }
+
+        closeModal.addEventListener('click', (e) => {
+            e.preventDefault();
+            storyModal.style.display = 'none';
+        });
+        window.addEventListener('click', (e) => {
+            if (e.target === storyModal) {
+                storyModal.style.display = 'none';
+            }
+        });
+        generateStoryCards();
+    </script>
+</body>
+
+</html>
